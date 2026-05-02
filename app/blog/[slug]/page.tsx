@@ -19,6 +19,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export function generateStaticParams() {
   const posts = getAllPosts();
+  console.log("STATIC PARAMS:", posts.map(p => p.slug));
   return posts.map((post) => ({ slug: post.slug }));
 }
 
