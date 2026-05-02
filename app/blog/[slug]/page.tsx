@@ -3,8 +3,9 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) return {};
   return {
     title: `${post.title} | Sarvada Events`,
@@ -19,12 +20,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 
 export function generateStaticParams() {
   const posts = getAllPosts();
-  console.log("STATIC PARAMS:", posts.map(p => p.slug));
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) notFound();
 
   const paragraphs = post.content
@@ -33,64 +34,25 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <main style={{ backgroundColor: '#fffaf4', minHeight: '100vh' }}>
-      {/* Back Link */}
       <div className="max-w-3xl mx-auto px-6 pt-12">
-        <Link
-          href="/blog"
-          style={{
-            fontFamily: "'Montserrat', sans-serif",
-            fontSize: '13px',
-            color: '#b55268',
-            textDecoration: 'none',
-            letterSpacing: '0.05em'
-          }}
-        >
+        <Link href="/blog" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '13px', color: '#b55268', textDecoration: 'none', letterSpacing: '0.05em' }}>
           ← Back to Blog
         </Link>
       </div>
 
-      {/* Post Header */}
       <div className="max-w-3xl mx-auto px-6 pt-8 pb-10">
-        <p
-          className="mb-4"
-          style={{
-            fontFamily: "'Montserrat', sans-serif",
-            fontSize: '12px',
-            color: '#b55268',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase'
-          }}
-        >
-          {new Date(post.date).toLocaleDateString('en-IN', {
-            day: 'numeric', month: 'long', year: 'numeric'
-          })}
+        <p className="mb-4" style={{ fontFamily: "'Montserrat', sans-serif", fontSize: '12px', color: '#b55268', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+          {new Date(post.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
         </p>
-        <h1
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            fontWeight: 500,
-            color: '#38322f',
-            fontSize: '42px',
-            lineHeight: '1.25',
-            marginBottom: '16px'
-          }}
-        >
+        <h1 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, color: '#38322f', fontSize: '42px', lineHeight: '1.25', marginBottom: '16px' }}>
           {post.title}
         </h1>
-        <p
-          style={{
-            fontFamily: "'Montserrat', sans-serif",
-            color: '#6b5f59',
-            fontSize: '16px',
-            lineHeight: '1.8'
-          }}
-        >
+        <p style={{ fontFamily: "'Montserrat', sans-serif", color: '#6b5f59', fontSize: '16px', lineHeight: '1.8' }}>
           {post.description}
         </p>
         <div style={{ height: '1px', backgroundColor: '#e8dcd6', marginTop: '32px' }} />
       </div>
 
-      {/* Post Content */}
       <div className="max-w-3xl mx-auto px-6 pb-20">
         {paragraphs.map((line, i) => {
           if (line.startsWith('# ')) {
@@ -141,7 +103,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         })}
       </div>
 
-      {/* CTA Footer */}
       <div className="py-16 px-6 text-center" style={{ backgroundColor: '#f6f1ea' }}>
         <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 500, color: '#b55268', fontSize: '32px', marginBottom: '12px' }}>
           Planning a wedding in Jaipur?
@@ -149,18 +110,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         <p style={{ fontFamily: "'Montserrat', sans-serif", color: '#38322f', fontSize: '15px', lineHeight: '1.8', marginBottom: '24px' }}>
           Talk to our team for a free consultation.
         </p>
-        <Link
-          href="/#contact"
-          style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            backgroundColor: '#b55268',
-            color: '#fffaf4',
-            fontSize: '18px',
-            padding: '14px 36px',
-            borderRadius: '50px',
-            textDecoration: 'none'
-          }}
-        >
+        <Link href="/#contact" style={{ fontFamily: "'Cormorant Garamond', serif", backgroundColor: '#b55268', color: '#fffaf4', fontSize: '18px', padding: '14px 36px', borderRadius: '50px', textDecoration: 'none' }}>
           Get Free Consultation
         </Link>
       </div>

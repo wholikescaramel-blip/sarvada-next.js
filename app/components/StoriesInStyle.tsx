@@ -38,6 +38,7 @@ function MoodboardCard({
           src={image}
           alt={title}
           fill
+          sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover"
         />
       </div>

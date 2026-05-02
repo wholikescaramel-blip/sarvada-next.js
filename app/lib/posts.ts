@@ -15,7 +15,6 @@ export interface Post {
 
 export function getAllPosts(): Post[] {
   const fileNames = fs.readdirSync(postsDirectory);
-  
   const posts = fileNames
     .filter((name) => name.endsWith('.mdx'))
     .map((fileName) => {
@@ -23,7 +22,6 @@ export function getAllPosts(): Post[] {
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = matter(fileContents);
-
       return {
         slug,
         title: data.title,
@@ -33,24 +31,40 @@ export function getAllPosts(): Post[] {
         content,
       };
     });
-
   return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export function getPostBySlug(slug: string): Post | null {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.mdx`);
-    const fileContents = fs.readFileSync(fullPath, 'utf8');
-    const { data, content } = matter(fileContents);
-
-    return {
-      slug,
-      title: data.title,
-      date: data.date,
-      description: data.description,
-      tags: data.tags || [],
-      content,
-    };
+    if (fs.existsSync(fullPath)) {
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const { data, content } = matter(fileContents);
+      return {
+        slug,
+        title: data.title,
+        date: data.date,
+        description: data.description,
+        tags: data.tags || [],
+        content,
+      };
+    }
+    const files = fs.readdirSync(postsDirectory);
+    for (const file of files) {
+      const fileContents = fs.readFileSync(path.join(postsDirectory, file), 'utf8');
+      const { data, content } = matter(fileContents);
+      if (data.slug === slug) {
+        return {
+          slug,
+          title: data.title,
+          date: data.date,
+          description: data.description,
+          tags: data.tags || [],
+          content,
+        };
+      }
+    }
+    return null;
   } catch {
     return null;
   }
