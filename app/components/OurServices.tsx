@@ -127,7 +127,7 @@ function ServiceCard({ image, title, description, icon, tag }: ServiceCardProps)
 
 const services = [
   {
-    image: '/images/752223d8750d3e1c90ba56f2bf434da8555dcf7d.png',
+    image: '/images/planning.png',
     title: 'End-to-End Planning',
     description: 'From first idea to final farewell, seamlessly managed.',
     icon: <CheckSquare size={12} strokeWidth={2} />,
