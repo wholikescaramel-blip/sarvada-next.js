@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,15 +15,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Sarvada Events | Wedding & Event Planner in Jaipur',
-  description: 'Sarvada Events is a Jaipur-based wedding and event planning company specialising in personalised weddings, pre-wedding events, and celebrations across Rajasthan.',
+  title: "Sarvada Events | Wedding Planner in Jaipur",
+  description:
+    "Sarvada Events — Jaipur's wedding planning studio. Deeply connected to the city's finest venues and trusted vendors, bringing your celebration together seamlessly.",
   openGraph: {
-    title: 'Sarvada Events | Wedding & Event Planner in Jaipur',
-    description: 'Celebrating Togetherness — weddings and events crafted with soul in Jaipur, Rajasthan.',
-    url: 'https://www.sarvadaevents.in',
-    siteName: 'Sarvada Events',
-    locale: 'en_IN',
-    type: 'website',
+    title: "Sarvada Events | Wedding Planner in Jaipur",
+    description:
+      "Wedding planners, deeply familiar with Jaipur's finest venues and trusted vendors — bringing your celebration together, seamlessly.",
+    url: "https://www.sarvadaevents.in",
+    siteName: "Sarvada Events",
+    locale: "en_IN",
+    type: "website",
   },
 };
 
@@ -35,7 +39,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
