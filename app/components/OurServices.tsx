@@ -311,7 +311,7 @@ export default function OurServices() {
       <div className="relative">
         {/* Left fade */}
         <div
-          className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none"
+          className="absolute left-0 top-0 h-full w-8 md:w-20 z-10 pointer-events-none"
           style={{
             background:
               'linear-gradient(to right, #FDFAF8 0%, rgba(253,250,248,0) 100%)',

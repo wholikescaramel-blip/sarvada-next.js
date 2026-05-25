@@ -149,7 +149,7 @@ export default function Hero() {
                   (e.target as HTMLButtonElement).style.transform = "translateY(0)";
                 }}
               >
-                Start Planning Your Wedding
+                <span>Start Planning<br />Your Wedding</span>
               </button>
 
               <button
@@ -177,7 +177,7 @@ export default function Hero() {
                   (e.target as HTMLButtonElement).style.color = "#B06878";
                 }}
               >
-                Discover Our Services
+                Explore Our Services
               </button>
             </div>
 

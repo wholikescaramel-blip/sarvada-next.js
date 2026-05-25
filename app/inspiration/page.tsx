@@ -334,7 +334,7 @@ export default function InspirationPage() {
         <div className="relative">
           {/* Left fade */}
           <div
-            className="absolute left-0 top-0 h-full w-20 z-10 pointer-events-none"
+            className="absolute left-0 top-0 h-full w-8 md:w-20 z-10 pointer-events-none"
             style={{
               background: "linear-gradient(to right, #F5EDE8 0%, rgba(245,237,232,0) 100%)",
             }}

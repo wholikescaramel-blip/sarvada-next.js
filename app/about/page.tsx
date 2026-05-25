@@ -69,10 +69,9 @@ export default function AboutPage() {
 
       {/* ── STORY SECTION ── */}
       <section
-        className="px-6 md:px-12"
-        style={{ backgroundColor: "#FDFAF8", padding: "5rem 0" }}
+        style={{ backgroundColor: "#FDFAF8", padding: "5rem 1.5rem" }}
       >
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-start">
             {/* Left */}
             <div>
