@@ -63,7 +63,7 @@ export default function AboutPage() {
             margin: "0 auto",
           }}
         >
-          Rooted in Jaipur. Connected to the people who make weddings truly unforgettable.
+          Sarvada means forever in Sanskrit. And that's exactly how we treat every family that trusts us.
         </p>
       </div>
 
@@ -98,10 +98,9 @@ export default function AboutPage() {
                   marginBottom: "1.25rem",
                 }}
               >
-                Sarvada Events is a Jaipur-based wedding planning studio with deep roots in
-                Rajasthan&apos;s hospitality and events world. We work with a network of trusted
-                venues, decorators, artists, and hospitality partners — people we know personally
-                and collaborate with regularly.
+                Sarvada Events is a wedding and event planning studio based in Jaipur, Rajasthan.
+                We work closely with couples and their families to bring celebrations together — 
+                seamlessly, thoughtfully, and without unnecessary excess.
               </p>
               <p
                 style={{
@@ -113,10 +112,8 @@ export default function AboutPage() {
                   marginBottom: "1.25rem",
                 }}
               >
-                When you work with us, you speak directly with the people planning your wedding —
-                from the first conversation to the last event. There are no handoffs to junior
-                coordinators. The same team that understands your vision is the same team on
-                the ground on your wedding day.
+                We are rooted in India's rich cultural traditions while weaving in contemporary elegance 
+                — because the best celebrations honour where you come from while embracing who you are today.
               </p>
               <p
                 style={{
@@ -127,8 +124,8 @@ export default function AboutPage() {
                   fontWeight: 300,
                 }}
               >
-                We know Jaipur — its venues, its seasons, its vendors, and the traditions that
-                deserve care. That local depth is what we bring to every celebration we take on.
+                And when the festivities end, the bond doesn't. Every family that trusts us
+                becomes a part of the Sarvada story, carried forward for as long as we exist.
               </p>
             </div>
 
@@ -160,6 +157,9 @@ export default function AboutPage() {
                 {
                   title: "Beautiful without excess",
                   text: "The best weddings are not the loudest or the most elaborate. They are the ones where every element feels intentional — the atmosphere, the flow, the emotion in the room.",
+                },
+                  title: "Sarvada — forever",
+                  text: "Our name is our promise. We do not plan celebration and move on. Every couple, every family becomes a relationship we carry forward. You'll always find us here.",
                 },
               ].map((item, i) => (
                 <div
@@ -306,7 +306,7 @@ export default function AboutPage() {
             marginBottom: "1.5rem",
           }}
         >
-          Ready to start planning your Sarvada:
+          Your Sarvada begins here:
         </p>
         <a
           href="/contact"
