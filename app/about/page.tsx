@@ -158,7 +158,8 @@ export default function AboutPage() {
                   title: "Beautiful without excess",
                   text: "The best weddings are not the loudest or the most elaborate. They are the ones where every element feels intentional — the atmosphere, the flow, the emotion in the room.",
                 },
-                  title: "Sarvada &mdash; forever",
+                {
+                  title: "Sarvada — forever",
                   text: "Our name is our promise. We do not plan celebration and move on. Every couple, every family becomes a relationship we carry forward. You'll always find us here.",
                 },
               ].map((item, i) => (
