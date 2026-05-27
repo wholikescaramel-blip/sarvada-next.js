@@ -82,7 +82,7 @@ export default function WhySarvada() {
               }}
             >
               <Image
-                src="/images/uz9kzbhbnk39leatx33cstykk1au2ahxy101314g.png"
+                src="/images/bride_outfit.png"
                 alt="Bride with bridesmaids"
                 fill
                 className="object-cover"

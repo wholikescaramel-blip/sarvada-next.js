@@ -211,7 +211,7 @@ export default function AboutPage() {
         }}
       >
         <Image
-          src="/images/1464e24e1b7700e6795611b659e1f6c5ac05bb11.png"
+          src="/images/aboutimage.png"
           alt="Sarvada Events — wedding ceremony"
           fill
           className="object-cover"

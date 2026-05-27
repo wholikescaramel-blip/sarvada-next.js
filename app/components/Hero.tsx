@@ -241,7 +241,7 @@ export default function Hero() {
               style={{ borderLeft: "1px solid rgba(176,104,120,0.1)" }}
           >
              <Image
-               src="/images/5497f9a19d423981e767096adaac723c05e9b12d.png"
+               src="/images/hero_couple.png"
                alt="Wedding planning by Sarvada Events"
                fill
                className="object-cover object-center"
