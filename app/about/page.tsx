@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About | Sarvada Events",
   description:
-    "Sarvada Events — a Jaipur-based wedding planning studio with deep roots in Rajasthan's finest venues and vendor network.",
+    "Sarvada Events — a Jaipur-based wedding planning company with deep roots in Rajasthan's finest venues and vendor network.",
 };
 
 export default function AboutPage() {
